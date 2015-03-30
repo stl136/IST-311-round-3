@@ -1,15 +1,22 @@
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
-public class MyJFrame extends JFrame
+public class MyJFrame extends JFrame implements ActionListener, KeyListener
 {
     JPanel mjp;
     //Building b1 = new Building();
-    
+    Timer tim;
+    int i;
+    int delay = 1000;
     public MyJFrame()
     {
        
@@ -17,6 +24,7 @@ public class MyJFrame extends JFrame
         super("Stick Hero!");
         mjp = new JPanel();
         //mjp.add(b1);
+        tim = new Timer(delay,  this);
         JLabel b1 = new JLabel("  B1 ");
         b1.setOpaque(true);
         b1.setBackground(Color.red);
@@ -54,6 +62,26 @@ public class MyJFrame extends JFrame
         
         
                 
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        Object obj = e.getSource();
+        if(obj == tim){
+            
+        }
+    }
+
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+    public void keyPressed(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
