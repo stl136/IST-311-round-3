@@ -5,7 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -15,24 +18,29 @@ public class MyJPanel extends JPanel implements KeyListener, ActionListener
     int y;
     int i;
     Graphics g;
+    JLabel c1, b1, b2, b3;
+    
     
     public MyJPanel(){
-        JLabel b1 = new JLabel("  B1 ");
+        
+        
+        this.setBackground(Color.pink);
+        b1 = new JLabel("  B1 ");
         b1.setOpaque(true);
-        b1.setBackground(Color.red);
+        b1.setBackground(Color.white);
         b1.setBounds(0, 420, 50, 200);
         
-        JLabel b2 = new JLabel("  B2");
+        b2 = new JLabel("  B2");
         b2.setOpaque(true);
-        b2.setBackground(Color.red);
+        b2.setBackground(Color.white);
         b2.setBounds(300, 420, 150, 200);
         
-        JLabel b3 = new JLabel("  B3");
+        b3 = new JLabel("  B3");
         b3.setOpaque(true);
-        b3.setBackground(Color.red);
+        b3.setBackground(Color.white);
         b3.setBounds(600, 420, 90, 200);
         
-        JLabel c1 = new JLabel();
+        c1 = new JLabel();
         c1.setOpaque(true);
         c1.setBackground(Color.blue);
         c1.setBounds(0, 370, 10, 50);
@@ -98,8 +106,35 @@ public class MyJPanel extends JPanel implements KeyListener, ActionListener
                     g = getGraphics();
                     g.setColor(Color.black);
                     g.drawLine(50, 420, x, 420);
+                    g.setColor(Color.pink);
+                    g.drawLine(50, 420, 50, y);
                     
                     
+                    
+                    
+                }
+                
+                c1.setLocation(x - 10, 370);
+                
+                if(c1.getX() > 300 && c1.getX() < 500)
+                {
+                    try {  
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(MyJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(null, "You Win!!!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+
+                    c1.setLocation(x - 10, 420);                    
+                    try {  
+                            Thread.sleep(1000);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(MyJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    JOptionPane.showMessageDialog(null, ":( You Lose!!!", "Game Over", JOptionPane.ERROR_MESSAGE);
                     
                 }
     }

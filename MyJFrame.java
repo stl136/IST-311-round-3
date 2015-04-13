@@ -23,8 +23,8 @@ public class MyJFrame extends JFrame
         super("Stick Hero!");
         mjp = new MyJPanel();
         
-        
-      
+
+        this.setBackground(Color.pink);
         this.getContentPane().add(mjp);
         this.setSize(960, 640);
         this.setLocationRelativeTo(null);
